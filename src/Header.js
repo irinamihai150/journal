@@ -1,11 +1,13 @@
+import { Container } from "react-bootstrap"
 import React from "react"
+import "./App.css"
 
 const Header = () => {
 	return (
-		<div>
+		<Container className='header'>
 			<h1>Digital Journal</h1>
 			<h2> | Create a Note</h2>
-		</div>
+		</Container>
 	)
 }
 
