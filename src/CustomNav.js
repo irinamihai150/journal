@@ -1,6 +1,7 @@
 import React from "react"
 import { Container, Navbar, Nav } from "react-bootstrap"
 import "./App.css"
+import { Link } from "react-router-dom"
 
 const CustomNav = () => {
 	return (
@@ -13,7 +14,9 @@ const CustomNav = () => {
 						className='justify-content-start'
 					>
 						<Nav className='me-auto'>
-							<Nav.Link href='login'>Log In</Nav.Link>
+							<Nav.Link as={Link} to='/login'>
+								Log In
+							</Nav.Link>
 							<Nav.Link href='logout'>Sign Out</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>

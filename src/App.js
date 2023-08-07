@@ -1,16 +1,18 @@
-
 import "./App.css"
-import CustomNav from "./CustomNav"
-import EntryCard from "./EntryCard"
-import Header from "./Header"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./Home"
+import Login from "./Login"
 
 function App() {
 	return (
-		<div className="app-container">
-			<CustomNav />
-			<Header />
-      <EntryCard/>
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/'>
+					<Route index element={<Home />} />
+					<Route path='login' element={<Login />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	)
 }
 
