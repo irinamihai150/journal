@@ -17,7 +17,9 @@ const CustomNav = () => {
 							<Nav.Link as={Link} to='/login'>
 								Log In
 							</Nav.Link>
-							<Nav.Link href='logout'>Sign Out</Nav.Link>
+							<Nav.Link as={Link} to='/signup'>
+								Sign Up
+							</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>
