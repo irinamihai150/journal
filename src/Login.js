@@ -8,13 +8,13 @@ const LOGIN_URL = "http://localhost:3500/auth"
 const Login = () => {
 	const { setAuth } = useContext(AuthContext)
 	const userRef = useRef()
-	const passwordRef = useRef() // Ref pentru câmpul de parolă
+	const passwordRef = useRef() 
 	const errRef = useRef()
 	const [user, setUser] = useState("")
 	const [pwd, setPwd] = useState("")
 	const [errMsg, setErrMsg] = useState("")
 	const [success, setSuccess] = useState(false)
-	const [showPassword, setShowPassword] = useState(false) // Starea pentru a afișa sau ascunde parola
+	const [showPassword, setShowPassword] = useState(false)
 
 	useEffect(() => {
 		userRef.current.focus()
@@ -57,7 +57,6 @@ const Login = () => {
 		}
 	}
 
-	// Funcția pentru a comuta între tipurile de input "password" și "text"
 	const togglePasswordVisibility = () => {
 		setShowPassword(!showPassword)
 	}
