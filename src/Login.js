@@ -96,16 +96,16 @@ const Login = () => {
 						/>
 						<label htmlFor='password'>Password:</label>
 						<input
-							type={showPassword ? "text" : "password"} // Schimbați tipul în funcție de starea showPassword
+							type={showPassword ? "text" : "password"} 
 							id='password'
 							autoComplete='off'
 							placeholder='Enter password'
 							onChange={(e) => setPwd(e.target.value)}
 							value={pwd}
 							required
-							ref={passwordRef} // Adăugați ref pentru câmpul de parolă
+							ref={passwordRef} 
 						/>
-						{/* Buton pentru a comuta între tipurile de input */}
+						
 						<button type='button' onClick={togglePasswordVisibility}>
 							{showPassword ? "Hide Password" : "Show Password"}
 						</button>
