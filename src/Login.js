@@ -2,16 +2,19 @@ import { useRef, useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import AuthContext from "./context/AuthProvider"
 import axios from "./api/axios"
-const LOGIN_URL = "/auth"
+
+const LOGIN_URL = "http://localhost:3500/auth"
 
 const Login = () => {
 	const { setAuth } = useContext(AuthContext)
 	const userRef = useRef()
-	const errRef = useRef() // Corrected line
+	const passwordRef = useRef() // Ref pentru câmpul de parolă
+	const errRef = useRef()
 	const [user, setUser] = useState("")
 	const [pwd, setPwd] = useState("")
 	const [errMsg, setErrMsg] = useState("")
 	const [success, setSuccess] = useState(false)
+	const [showPassword, setShowPassword] = useState(false) // Starea pentru a afișa sau ascunde parola
 
 	useEffect(() => {
 		userRef.current.focus()
@@ -32,8 +35,8 @@ const Login = () => {
 					withCredentials: true,
 				}
 			)
-			// console.log(JSON.stringify(response?.data));
-			// console.log(JSON.stringify(response));
+			console.log(JSON.stringify(response?.data))
+			console.log(JSON.stringify(response))
 			const accessToken = response?.data?.accessToken
 			const roles = response?.data?.roles
 			setAuth({ user, pwd, roles, accessToken })
@@ -50,8 +53,13 @@ const Login = () => {
 			} else {
 				setErrMsg("Login Failed")
 			}
-			err.Ref.current.focus()
+			errRef.current.focus()
 		}
+	}
+
+	// Funcția pentru a comuta între tipurile de input "password" și "text"
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword)
 	}
 
 	return (
@@ -88,14 +96,19 @@ const Login = () => {
 						/>
 						<label htmlFor='password'>Password:</label>
 						<input
-							type='password'
+							type={showPassword ? "text" : "password"} // Schimbați tipul în funcție de starea showPassword
 							id='password'
 							autoComplete='off'
 							placeholder='Enter password'
 							onChange={(e) => setPwd(e.target.value)}
 							value={pwd}
 							required
+							ref={passwordRef} // Adăugați ref pentru câmpul de parolă
 						/>
+						{/* Buton pentru a comuta între tipurile de input */}
+						<button type='button' onClick={togglePasswordVisibility}>
+							{showPassword ? "Hide Password" : "Show Password"}
+						</button>
 						<button>Sign In</button>
 					</form>
 					<p>
