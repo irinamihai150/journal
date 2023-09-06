@@ -1,7 +1,7 @@
 import "./App.css"
 import CustomNav from "./CustomNav"
-import EntryCard from "./EntryCard"
 import Header from "./Header"
+
 
 
 const Home = () => {
@@ -10,7 +10,6 @@ const Home = () => {
 			<div className='app-container'>
 				<CustomNav />
 				<Header />
-				<EntryCard />
 			</div>
 		</div>
 	)

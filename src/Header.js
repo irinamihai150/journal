@@ -6,7 +6,6 @@ const Header = () => {
 	return (
 		<Container className='header'>
 			<h1>Digital Journal</h1>
-			<h2> | Create a Note</h2>
 		</Container>
 	)
 }
