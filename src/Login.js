@@ -236,8 +236,6 @@
 
 // // export default Login
 
-
-
 import { useRef, useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import AuthContext from "./context/AuthProvider"
@@ -310,7 +308,7 @@ const Login = () => {
 					<h1>You are logged in</h1>
 					<br />
 					<p>
-						<Link to='/home'>Home</Link>
+						<Link to='/profile'>Home</Link>
 					</p>
 				</>
 			) : (

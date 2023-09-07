@@ -1,14 +1,12 @@
-import React from 'react'
+import React from "react"
 import "./App.css"
-import CustomNav from "./CustomNav"
-import Header from "./Header"
+// import CustomNav from "./CustomNav"
 import EntryCard from "./EntryCard"
 
 const ProfilePage = () => {
-  return (
+	return (
 		<div>
-			<CustomNav />
-			<Header />
+			{/* <CustomNav /> */}
 			<EntryCard />
 		</div>
 	)
