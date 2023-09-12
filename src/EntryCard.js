@@ -5,14 +5,19 @@ import { Container, Card, CardGroup } from "react-bootstrap"
 import axios from "axios"
 
 const EntryCard = () => {
+	// const handleSuccessfulLogin = (userId) => {
+	// 	setUserId(userId)
+	// }
 	const [notes, setNotes] = useState([])
-	const [userId, setUserId] = useState("")
+	const [userId, setUserId] = useState(null)
 	const [newNote, setNewNote] = useState({ title: "", body: "" })
 
 	useEffect(() => {
 		const fetchNotes = async () => {
 			try {
-				const response = await axios.get("http://localhost:3500/notes")
+				const response = await axios.get(
+					`http://localhost:3500/notes/user/${userId}`
+				)
 				if (response.data.userId) {
 					const extractedUserId = response.data.userId
 					console.log("Extracted userId:", extractedUserId)
@@ -28,7 +33,7 @@ const EntryCard = () => {
 			}
 		}
 		fetchNotes()
-	}, [])
+	}, [userId])
 
 	const handleDeleteNote = async (userId, noteId) => {
 		console.log("Attempting to delete note...")
